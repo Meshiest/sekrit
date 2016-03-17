@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <title>Sekrit</title>
+    <link rel='stylesheet' type='text/css' href='style.css' />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+  </head>
+  <body ng-controller="AppCtrl">
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js'> </script>
+    <script src='app.js'> </script>
+
+    <nav>
+      <div class='title'>Sekrit</div>
+      <div class='refresh' ng-click='topBtnClick()'>
+        {{viewing ? "&#10006;" : "&#x21bb;" }}
+      </div>
+    </nav>
+
+    <div id="content">
+      <div ng-if='!viewing'>
+        <section ng-repeat='post in posts' class='post' ng-click='viewPost(post)'>
+          <div class='message'>
+            {{post.msg}}
+          </div>
+          <div class='commentNum'>
+            {{post.comments}} answer<span ng-if='post.comments.length!=1'>s</span>
+          </div>
+        </section>
+      </div>
+      <div ng-if='viewing'>
+        <section class='post selected'>
+          <div class='message'>
+            {{selectedPost.msg}}
+          </div>
+          <div class='commentNum'>
+            {{selectedPost.comments}} answer<span ng-if='selectedPost.comments.length!=1'>s</span>
+          </div>
+        </section>
+        <div ng-if='comments[viewing] && comments[viewing].length'>
+          <section class='answer' ng-repeat='comment in comments[viewing]'>
+            <div class='message'>
+              {{comment.msg}}
+            </div>
+          </section>
+        </div>
+        <div ng-if='!comments[viewing] || !comments[viewing].length' class='post'>
+          <div class='message'>
+            Not enough answers...
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <button class='createPost' ng-click='createPost()' >
+      &#9998;
+    </button>
+
+    <div class='tint' ng-show='writing'>
+      <div class='postdialog'>
+        <div class='postnav'>
+          <header>{{viewing ? "Answer" : "Ask"}}</header>
+          <div class='close' ng-click='closePost()'>&#10006;</div>
+        </div>
+        <div class='postcontent'>
+          <textarea placeholder='{{viewing ? "Answer" : "Question"}}' ng-model='question' maxlength='{{viewing ? 250 : 100}}'></textarea>
+          <div class='maxlength' ng-class="{invalid: question.length < 5}">
+            {{question.length}}/{{viewing ? 250 : 100}}
+          </div>
+          <div class='information'>
+            Please be respectful and don't single people out. Any insulting posts will not be tolerated.
+          </div>
+          <button class='postButton' ng-click='submit()'>{{viewing ? "Answer" : "Ask"}}</button>
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+</html>

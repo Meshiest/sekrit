@@ -1,0 +1,158 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+* {
+  font-family: Helvetica, sans-serif;
+}
+
+nav {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 10vh;
+  background: #52A;
+  box-shadow: 0px 2px 5px #aaa
+}
+
+nav .title {
+  position: absolute;
+  color: #fff;
+  height: 10vh;
+  font-size: 6vh;
+  padding: 2vh;
+}
+
+nav .refresh {
+  position: absolute;
+  right: 4vh;
+  top: 2vh;
+  color: #fff;
+  font-size: 6vh;
+}
+
+#content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+  width: 100vw;
+  height: 90vh;
+}
+
+.createPost {
+  position: fixed;
+  bottom: 2.5vh;
+  right: 2.5vh;
+  width: 10vh;
+  height: 10vh;
+  border-radius: 50%;
+  border: none;
+  background: #52A;
+  color: #FFF;
+  font-size: 10vh;
+  box-shadow: 2px 2px 5px #aaa
+}
+
+.postdialog {
+  position: fixed;
+  top: 15vh;
+  bottom: 15vh;
+  height: 70vh;
+  left: 15vw;
+  right: 15vw;
+  width: 70vw;
+  box-shadow: 2px 2px 5px #aaa;
+}
+
+.postnav {
+  height: 10vh;
+  background: #52A;
+}
+
+.postnav header {
+  float: left;
+  color: #fff;
+  font-size: 6vh;
+  padding: 2vh;
+}
+
+.postnav .close {
+  float: right;
+  color: #fff;
+  font-size: 6vh;
+  padding: 2vh;
+}
+
+.postcontent {
+  background: #fff;
+  height: 100%;
+}
+
+.postcontent textarea {
+  box-sizing: border-box;
+  border-radius: 0px;
+  margin: 0;
+  left: 0;
+  right: 0;
+  font-size: 4vh;
+  max-width: 100%;
+  width: 100%;
+  height: 40%;
+  padding: 1em;
+}
+
+.information {
+  padding: 1em;
+}
+
+.maxlength {
+  width: 100%;
+  text-align: right;
+}
+
+.maxlength .invalid {
+  color: #f00;
+}
+
+.tint {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.postButton {
+  border-radius: 0px;
+  position: absolute;
+  left: 15%;
+  width: 70%;
+  right: 15%;
+  background: #52A;
+  color: #fff;
+  padding: 2vh;
+  font-size: 4vh;
+}
+
+.post, .answer {
+  min-height: 5vh;
+  width: 100vw;
+  padding: 3vh;
+}
+
+.post.selected {
+  box-shadow: 0px 2px 5px #aaa
+}
+
+.message {
+  font-size: 4vh;
+  width: 92vw;
+}
+
+.post .commentNum {
+  width: 92vw;
+}
